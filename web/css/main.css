@@ -1,0 +1,8 @@
+.demobar {
+    display:none;
+}
+#demo-side-bar {
+    top:53px!important;
+    left:90%!important;
+    display:block!important;
+}

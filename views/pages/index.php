@@ -5,16 +5,15 @@ use yii\helpers\Html;
 ?>
 
 <!-- Content -->
-<section class="container clearfix">
     <!-- Page Title -->
     <header class="container page_info clearfix">
-        <h1 class="regular brown bottom_line">O турнире</h1>
+        <h1>O турнире</h1>
         <div class="clear"></div>
     </header>
     <!-- /Page Title -->
     <div class="padding20"></div>
     <div class="col_3_4">
-        <div class="padding10"></div>
+        <hr>
         <p>Дебютный розыгрыш самого престижного еврокубка стартовал через месяц после первого Конгресса УЕФА,
             состоявшегося 2 марта 1955 года в Вене. Однако идея об организации "Кубка Европы"
             принадлежала отнюдь не футбольному союзу.</p>
@@ -40,28 +39,4 @@ use yii\helpers\Html;
         <br>
         <p>©UEFA.com 1998-2017. All rights reserved.</p>
     </div>
-    <div class="col_1_4 last">
-        <h4>Выбрать сезон</h4>
-        <ul class="sidebarmenu">
-            <li><a href="#">2000/2001</a></li>
-            <li><a href="#">2001/2002</a></li>
-            <li><a href="#">2002/2003</a></li>
-            <li><a href="#">2003/2004</a></li>
-            <li><a href="#">2004/2005</a></li>
-            <li><a href="#">2005/2006</a></li>
-            <li><a href="#">2006/2007</a></li>
-            <li><a href="#">2007/2008</a></li>
-            <li><a href="#">2008/2009</a></li>
-            <li><a href="#">2009/2010</a></li>
-            <li><a href="#">2010/2011</a></li>
-            <li><a href="#">2011/2012</a></li>
-            <li><a href="#">2012/2013</a></li>
-            <li><a href="#">2013/2014</a></li>
-            <li><a href="#">2014/2015</a></li>
-            <li><a href="#">2015/2016</a></li>
-            <li><a href="#">2016/2017</a></li>
-        </ul>
-    </div>
-    <div class="clear padding40"></div>
-</section>
 <!-- /Content -->

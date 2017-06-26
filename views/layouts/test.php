@@ -38,9 +38,9 @@ AppAsset::register($this);
         <nav class="main-menu">
             <ul>
                 <li><a href="<?= \yii\helpers\Url::home()?>">Главная</a></li>
-                <li><a href="<?= \yii\helpers\Url::to('pages/list')?>">Победители ЛЧ</a></li>
-                <li><a href="blog.html">Регистрация</a></li>
-                <li><a href="contact.html">Вход</a></li>
+                <li><a href="<?= \yii\helpers\Url::to('/pages/list')?>">Победители ЛЧ</a></li>
+                <li><a href="/">Регистрация</a></li>
+                <li><a href="/">Вход</a></li>
             </ul>
         </nav>
         <!-- /Master Nav -->
@@ -49,21 +49,23 @@ AppAsset::register($this);
 </header>
 <!-- Slider -->
 <div class="bannerbg">
-    <div class="container clearfix">
-        <div class="flexslider" >
-            <ul class="slides">
-                <li> <?= Html::img('@web/images/fslide01.jpg', ['alt' => "Руни"])?></li>
-                <li><?= Html::img('@web/images/fslide02.jpg', ['alt' => "Стадион"])?></li>
-                <li> <?= Html::img('@web/images/fslide03.jpg', ['alt' => "Мяч"])?></li>
-                <li> <?= Html::img('@web/images/fslide04.jpg', ['alt' => "Мяч в сетке"])?> </li>
-                <li> <?= Html::img('@web/images/fslide05.jpg', ['alt' => "Кубок"])?> </li>
-                <li> <?= Html::img('@web/images/fslide06.jpg', ['alt' => "Пенальти"])?> </li>
-            </ul>
-        </div>
-    </div>
+    <?= $this->render('_slider')?>
 </div>
 <!-- /Slider -->
-<?= $content ?>
+
+<!-- Content -->
+
+<section class="container clearfix">
+    <div class="col_3_4">
+        <?= $content ?>
+    </div>
+    <div class="col_1_4 last" style="text-align: center; padding-top: 20px">
+        <?= $this->render('_sidebar')?>
+    </div>
+    <div class="clear padding40"></div>
+
+</section>
+<!-- /Content -->
 
 <!-- footer -->
 <footer class="footer_bg_bottom clearfix">

@@ -47,7 +47,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'pages/<id:\d+>' => 'pages/view',
+                'page/<id:\d+>' => 'pages/view',
                 'page/<page:\d+>' => 'pages/list',
             ],
         ],

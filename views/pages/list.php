@@ -6,8 +6,6 @@ use yii\helpers\Html;
 
 ?>
 
-<section class="container clearfix">
-
 <?php if (!empty($pages)): ?>
     <?php foreach ($pages as $i): ?>
         <div class="padding20"></div>
@@ -23,4 +21,3 @@ use yii\helpers\Html;
     <?php endforeach; ?>
 <?= LinkPager::widget(['pagination' => $post])?>
 <?php endif; ?>
-</section>

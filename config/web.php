@@ -48,7 +48,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'page/<id:\d+>' => 'pages/view',
-                'page/<page:\d+>' => 'pages/list',
+                'pages/<page:\d+>' => 'pages/list',
             ],
         ],
 

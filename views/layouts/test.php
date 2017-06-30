@@ -39,7 +39,7 @@ AppAsset::register($this);
             <ul>
                 <li><a href="<?= \yii\helpers\Url::home()?>">Главная</a></li>
                 <li><a href="<?= \yii\helpers\Url::to('/pages/list')?>">Победители ЛЧ</a></li>
-                <li><a href="/">Регистрация</a></li>
+                <li><a href="<?= \yii\helpers\Url::to('/pages/signup')?>">Регистрация</a></li>
                 <li><a href="/">Вход</a></li>
             </ul>
         </nav>

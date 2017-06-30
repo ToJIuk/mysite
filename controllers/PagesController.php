@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 use app\models\Pages;
+use app\models\Signup;
 use yii\data\Pagination;
 
 class PagesController extends AppController
@@ -34,4 +35,9 @@ class PagesController extends AppController
         return $this->render('view', compact('page'));
     }
 
+    public function actionSignup()
+    {
+        $model = new Signup();
+        return $this->render('signup', compact('model'));
+    }
 }

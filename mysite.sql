@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 30 2017 г., 11:55
+-- Время создания: Июл 02 2017 г., 17:52
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -30,7 +30,7 @@ CREATE TABLE `myuser` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -38,9 +38,8 @@ CREATE TABLE `myuser` (
 --
 
 INSERT INTO `myuser` (`id`, `name`, `email`, `password`) VALUES
-(1, 'Tolik', 'dt150685@mail.ru', '123'),
-(2, 'Tolik', 'dt150685@gmail.ru', '08e1bcc48bdba33d2565'),
-(3, 'Tolik', 'dt150685@1mail.ru', '40bd001563085fc35165');
+(5, 'Tolik', 'dt150685@mail.ru', '40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
+(6, 'admin', 'admin@admin.com', 'd033e22ae348aeb5660fc2140aec35850c4da997');
 
 -- --------------------------------------------------------
 
@@ -99,12 +98,12 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT для таблицы `myuser`
 --
 ALTER TABLE `myuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

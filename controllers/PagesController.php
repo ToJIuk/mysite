@@ -7,10 +7,10 @@
  */
 
 namespace app\controllers;
+
 use app\models\Login;
 use app\models\Pages;
 use app\models\Signup;
-use Codeception\Module\Yii1;
 use yii\data\Pagination;
 
 class PagesController extends AppController
@@ -51,13 +51,29 @@ class PagesController extends AppController
 
     public function actionLogin()
     {
+        if (!\Yii::$app->user->isGuest){
+
+            return $this->goHome();
+        }
         $login_model = new Login();
         if (\Yii::$app->request->post('Login')){
             $login_model->attributes = \Yii::$app->request->post('Login');
             if ($login_model->validate()){
-
+                \Yii::$app->user->login($login_model->getUser());
+                if (\Yii::$app->user->identity->name == 'admin' ){
+                    return $this->redirect(['admin/default/index']);
+                }
+                return $this->goHome();
             }
         }
         return $this->render('login', compact('login_model'));
     }
+
+    public function actionLogout(){
+        if (!\Yii::$app->user->isGuest){
+            \Yii::$app->user->logout();
+            return $this->redirect(['login']);
+        }
+    }
+
 }

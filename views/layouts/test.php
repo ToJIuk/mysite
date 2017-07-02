@@ -6,8 +6,12 @@
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\bootstrap\NavBar;
+use yii\bootstrap\Nav;
 
 AppAsset::register($this);
+$this->title = 'Победители Лиги чемпионов';
+
 ?>
 
 <?php $this->beginPage() ?>
@@ -36,12 +40,23 @@ AppAsset::register($this);
         <!-- /Logo -->
         <!-- Master Nav -->
         <nav class="main-menu">
-            <ul>
-                <li><a href="<?= \yii\helpers\Url::home()?>">Главная</a></li>
-                <li><a href="<?= \yii\helpers\Url::to('/pages/list')?>">Победители ЛЧ</a></li>
-                <li><a href="<?= \yii\helpers\Url::to('/pages/signup')?>">Регистрация</a></li>
-                <li><a href="<?= \yii\helpers\Url::to('/pages/login')?>">Вход</a></li>
-            </ul>
+            <?php
+            echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => [
+            ['label' => 'Главная', 'url' => ['/pages/index']],
+            ['label' => 'Победители ЛЧ', 'url' => ['/pages/list']],
+            ['label' => 'Контакты', 'url' => ['/site/contact']],
+            ['label' => 'Регистрация', 'url' => ['/pages/signup']],
+            Yii::$app->user->isGuest ?
+            ['label' => 'Вход', 'url' => ['/pages/login']] :
+            [
+            'label' => 'Выход (' . Yii::$app->user->identity->name . ')',
+            'url' => ['/pages/logout'],
+            'linkOptions' => ['data-method' => 'post']
+            ],
+            ],
+            ]);?>
         </nav>
         <!-- /Master Nav -->
     </div>

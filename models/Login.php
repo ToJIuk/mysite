@@ -26,7 +26,7 @@ class Login extends Model
     public function validatePassword($attribute, $params){
         if (!$this->hasErrors()){
             $user = $this->getUser();
-            if (!$user || !$user->validatePassw($this->password)){
+            if (!$user or !$user->validatePassw($this->password)){
                 $this->addError($attribute, 'Пароль или пользователь введены неверно');
             }
         }

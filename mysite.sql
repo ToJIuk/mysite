@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июл 02 2017 г., 17:52
+-- Время создания: Июл 29 2017 г., 16:13
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -19,6 +19,26 @@ SET time_zone = "+00:00";
 --
 -- База данных: `mysite`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `text` text,
+  `date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `name`, `text`, `date`) VALUES
+(28, 'Tolik', 'test message ', '29 July 2017 14:32:52');
 
 -- --------------------------------------------------------
 
@@ -78,6 +98,12 @@ INSERT INTO `pages` (`id`, `img`, `description`, `text`, `teams`, `years`) VALUE
 --
 
 --
+-- Индексы таблицы `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `myuser`
 --
 ALTER TABLE `myuser`
@@ -95,6 +121,11 @@ ALTER TABLE `pages`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+--
 -- AUTO_INCREMENT для таблицы `myuser`
 --
 ALTER TABLE `myuser`
@@ -103,7 +134,7 @@ ALTER TABLE `myuser`
 -- AUTO_INCREMENT для таблицы `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

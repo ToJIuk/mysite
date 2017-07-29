@@ -8,6 +8,8 @@
 
 namespace app\controllers;
 
+use app\controllers\Yii;
+use app\models\Comments;
 use app\models\Login;
 use app\models\Pages;
 use app\models\Signup;
@@ -34,7 +36,15 @@ class PagesController extends AppController
     public function actionView(){
         $id = \Yii::$app->request->get('id');
         $page = Pages::findOne($id);
-        return $this->render('view', compact('page'));
+        $model = new Comments();
+        if (isset($_POST['Comments'])){
+            $model->date = date('j F Y G:i:s');
+            $model->name = \Yii::$app->user->identity->name;
+            $model->text = $_POST['Comments']['text'];
+            $model->insert();
+        }
+        $comments = Comments::find()->all();
+        return $this->render('view', compact('page', 'model', 'comments'));
     }
 
     public function actionSignup()
@@ -75,5 +85,6 @@ class PagesController extends AppController
             return $this->redirect(['login']);
         }
     }
+
 
 }

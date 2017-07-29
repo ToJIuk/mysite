@@ -38,7 +38,8 @@ $this->title = 'Победители Лиги чемпионов';
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/admin/default/index']],
+            ['label' => 'Статьи', 'url' => ['/admin/default/index']],
+            ['label' => 'Комментарии', 'url' => ['/admin/comments/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Вход', 'url' => ['/pages/login']]
             ) : (

@@ -14,6 +14,7 @@ use app\models\Login;
 use app\models\Pages;
 use app\models\Signup;
 use yii\data\Pagination;
+use yii\helpers\Html;
 
 class PagesController extends AppController
 {
@@ -22,7 +23,7 @@ class PagesController extends AppController
     }
 
     public function actionList(){
-        $query = Pages::find();
+        $query = Pages::find()->orderBy('id DESC');
         $post = new Pagination(['totalCount' => $query->count(), 'pageSize' => 4, 'pageSizeParam' => false,
             'forcePageParam' => false]);
         $pages = $query->offset($post->offset)->limit($post->limit)->all();
@@ -40,10 +41,10 @@ class PagesController extends AppController
         if (isset($_POST['Comments'])){
             $model->date = date('j F Y G:i:s');
             $model->name = \Yii::$app->user->identity->name;
-            $model->text = $_POST['Comments']['text'];
+            $model->text = Html::encode($_POST['Comments']['text']);
             $model->insert();
         }
-        $comments = Comments::find()->all();
+        $comments = Comments::find()->orderBy('id DESC')->all();
         return $this->render('view', compact('page', 'model', 'comments'));
     }
 

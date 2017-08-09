@@ -19,24 +19,24 @@ use yii\widgets\Pjax;
 <?php endif; ?>
 
 <h2>Комментарии:</h2>
+<?php Pjax::begin();?>
 
 <div class="row">
-    <?php Pjax::begin();?>
 
     <div class="col-lg-4">
         <?php $form = ActiveForm::begin(['options' => ['data' => ['pjax' => true]]]); ?>
 
-        <?= $form->field($model, 'text')->label('Текст сообщения') ?>
+            <?php if (!\Yii::$app->user->isGuest){ ?>
+                <?= $form->field($model, 'text')->label('Текст сообщения') ?>
 
-        <?php if (!\Yii::$app->user->isGuest){ ?>
             <div class="form-group">
                 <?= Html::submitButton('Добавить комментарий', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-            </div> <?php }else {echo "Для добавления комментариев необходима авторизация";} ?>
-
+            </div> <?php }else { ?>
+                Для добавления комментариев необходима <a href="<?= \yii\helpers\Url::to('/pages/login')?>">авторизация</a> <hr>
+            <?php } ?>
         <?php ActiveForm::end(); ?>
 
     </div>
-    <?php Pjax::end(); ?>
 
 </div>
 
@@ -48,4 +48,5 @@ use yii\widgets\Pjax;
         <?php endforeach;?>
     </div>
 </div>
+<?php Pjax::end(); ?>
 

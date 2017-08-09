@@ -10,6 +10,7 @@ namespace app\models;
 
 
 use yii\base\Model;
+use yii\helpers\Html;
 
 class Signup extends Model
 {
@@ -30,7 +31,7 @@ class Signup extends Model
     public function signup(){
         $user = new Myuser();
         $user->email = $this->email;
-        $user->name = $this->name;
+        $user->name = Html::encode($this->name);
         $user->setPassword($this->password);
         return $user->save();
     }

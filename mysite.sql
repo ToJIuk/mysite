@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июл 29 2017 г., 16:13
+-- Время создания: Авг 20 2017 г., 18:40
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -38,7 +38,8 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `name`, `text`, `date`) VALUES
-(28, 'Tolik', 'test message ', '29 July 2017 14:32:52');
+(29, 'Tolik', 'test2', '9 August 2017 18:53:02'),
+(30, 'Tolik', 'test3', '9 August 2017 18:53:31');
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,8 @@ CREATE TABLE `myuser` (
 
 INSERT INTO `myuser` (`id`, `name`, `email`, `password`) VALUES
 (5, 'Tolik', 'dt150685@mail.ru', '40bd001563085fc35165329ea1ff5c5ecbdbbeef'),
-(6, 'admin', 'admin@admin.com', 'd033e22ae348aeb5660fc2140aec35850c4da997');
+(6, 'admin', 'admin@admin.com', 'd033e22ae348aeb5660fc2140aec35850c4da997'),
+(9, '&lt;script&gt;alert(1)&lt;/script&gt;', 's@vvss.ru', '40bd001563085fc35165329ea1ff5c5ecbdbbeef');
 
 -- --------------------------------------------------------
 
@@ -124,17 +126,17 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT для таблицы `myuser`
 --
 ALTER TABLE `myuser`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT для таблицы `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

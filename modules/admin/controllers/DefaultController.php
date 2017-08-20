@@ -8,6 +8,9 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use app\modules\admin\models\UploadFile;
+
 
 /**
  * DefaultController implements the CRUD actions for Pages model.
@@ -39,7 +42,7 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Pages::find(),
+            'query' => Pages::find()->orderBy('id DESC'),
         ]);
 
         return $this->render('index', [
@@ -66,13 +69,21 @@ class DefaultController extends Controller
      */
     public function actionCreate()
     {
+        $file = new UploadFile();
         $model = new Pages();
+
+        if (Yii::$app->request->isPost) {
+            $file->imageFile = UploadedFile::getInstance($file, 'imageFile');
+            $model->img = '@web/images/' . $file->imageFile;
+            $file->upload();
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'file' => $file,
             ]);
         }
     }
@@ -85,13 +96,21 @@ class DefaultController extends Controller
      */
     public function actionUpdate($id)
     {
+        $file = new UploadFile();
         $model = $this->findModel($id);
+
+        if (Yii::$app->request->isPost) {
+            $file->imageFile = UploadedFile::getInstance($file, 'imageFile');
+            $model->img = '@web/images/' . $file->imageFile;
+            $file->upload();
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'file' => $file,
             ]);
         }
     }

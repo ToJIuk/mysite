@@ -25,7 +25,7 @@ class Signup extends Model
             ['email', 'email'],
             ['email', 'unique', 'targetClass' => 'app\models\Myuser'],
             ['name', 'unique', 'targetClass' => 'app\models\Myuser'],
-            ['password', 'string', 'min'=>2, 'max'=>10]
+            ['password', 'string', 'min'=>3, 'max'=>10]
         ];
     }
     public function signup(){

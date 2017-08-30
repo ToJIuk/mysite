@@ -26,6 +26,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\Myuser',
             'enableAutoLogin' => true,
+            'loginUrl' => ['pages/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
